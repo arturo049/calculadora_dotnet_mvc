@@ -1,0 +1,31 @@
+@model calculadora_dotnet_mvc.Models.CalculadoraModel
+
+<div style="max-width: 350px; margin: 40px auto; padding: 20px; border: 1px solid #ccc; border-radius: 8px; font-family: Arial;">
+    <h2>Calculadora ASP.NET MVC</h2>
+    <form asp-action="Index" method="post">
+        <div style="margin-bottom: 10px;">
+            <input asp-for="Num1" type="number" step="any" placeholder="Primer número" required style="width: 100%; padding: 8px;" />
+        </div>
+        <div style="margin-bottom: 10px;">
+            <select asp-for="Operacion" style="width: 100%; padding: 8px;">
+                <option value="suma">Sumar (+)</option>
+                <option value="resta">Restar (-)</option>
+                <option value="multiplicacion">Multiplicar (*)</option>
+                <option value="division">Dividir (/)</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 10px;">
+            <input asp-for="Num2" type="number" step="any" placeholder="Segundo número" required style="width: 100%; padding: 8px;" />
+        </div>
+        <button type="submit" style="width: 100%; padding: 10px; background: #0056b3; color: white; border: none; font-weight: bold;">
+            Calcular
+        </button>
+    </form>
+
+    @if (Model.Resultado != null)
+    {
+        <div style="margin-top: 15px; padding: 10px; background: #e9ecef; text-align: center; font-weight: bold; font-size: 1.2em;">
+            Resultado: @Model.Resultado
+        </div>
+    }
+</div>
